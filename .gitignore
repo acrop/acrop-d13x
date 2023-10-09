@@ -1,22 +1,29 @@
-# Build and Release Folders
-bin-debug/
-bin-release/
-[Oo]bj/
-[Bb]in/
-
-
-/toolchain
 *.pyc
+.config
+.config.old
+.defconfig
+.dirlist
+cconfig.h
+rtconfig.h
+partition_table.h
+.sconsign.dblite
+.Kconfig.prj
+*.bak
+.log/
+.vscode/
+.cscope/
+output/
+/toolchain/
+build/
+tools/toolchain/Xuantie-900-gcc-elf-newlib-x86_64
+tools/toolchain/Xuantie-900-gcc-elf-newlib-mingw
+tools/env/tools/qemu/qemu-win
+tools/env/tools/qemu/qemu-linux
+packages/packages.dbsqlite
+packages/pkgs_error.json
+packages/pkgs.json
+.clang-format
+.commit
+.editorconfig
+.gitattributes
 
-# Other files and folders
-.settings/
-
-# Executables
-*.swf
-*.air
-*.ipa
-*.apk
-
-# Project files, i.e. `.project`, `.actionScriptProperties` and `.flexProperties`
-# should NOT be excluded as they contain compiler settings and other important
-# information for Eclipse / Flash Builder.
