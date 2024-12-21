@@ -3,10 +3,7 @@ rem SPDX-License-Identifier: Apache-2.0
 rem
 rem Copyright (C) 2023-2024 ArtInChip Technology Co., Ltd
 
-if "%CD%"=="C:\Windows\system32" (
-    echo Current user is administrator, need change path to Luban-Lite ...
-    cd /d %~dp0
-)
+cd /d %~dp0
 
 set PYTHONIOENCODING=UTF-8
 set SDK_PRJ_TOP_DIR=%cd%
