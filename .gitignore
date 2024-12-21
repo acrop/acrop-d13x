@@ -30,3 +30,4 @@ packages/pkgs.json
 libaic_canvas*.a
 .image_cfg.json.tmp
 bootloader.bin
+/tools/env/tools/ConEmu/ConEmu/clink/profile/.history
