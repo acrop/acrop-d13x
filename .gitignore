@@ -4,6 +4,10 @@ bin-release/
 [Oo]bj/
 [Bb]in/
 
+
+/toolchain
+*.pyc
+
 # Other files and folders
 .settings/
 
