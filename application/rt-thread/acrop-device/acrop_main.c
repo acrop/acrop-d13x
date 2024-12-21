@@ -1,6 +1,5 @@
 #include <rtthread.h>
 #include <stdio.h>
-#include "sqlite3.h"
 #include "rtdevice.h"
 #include "aic_hal_gpio.h"
 
@@ -15,95 +14,6 @@ int callback(void *NotUsed, int argc, char **argv, char **azColName)
         rt_kprintf("%s = %s\n", azColName[i], argv[i] ? argv[i] : "NULL");
     }
     rt_kprintf("\n");
-    return 0;
-}
-
-
-static void sqlite_demo(void)
-{
-    sqlite3 *db;
-    char *err_msg = 0;
-    int rc;
-
-    sqlite3_os_init();
-    
-    /* 打开数据库，如果数据库不存在则创建 */
-    rc = sqlite3_open(DATABASE_NAME, &db);
-
-    if (rc != SQLITE_OK) 
-    {
-        rt_kprintf("无法打开数据库: %s\n", sqlite3_errmsg(db));
-        return;
-    }
-
-    rt_kprintf("成功打开数据库: %s\n", DATABASE_NAME);
-
-    /* 创建一个表 */
-    const char *sql_create_table = 
-        "CREATE TABLE IF NOT EXISTS Students(Id INT, Name TEXT, Age INT);";
-    
-    rc = sqlite3_exec(db, sql_create_table, 0, 0, &err_msg);
-
-    sqlite3_free(err_msg);
-    sqlite3_close(db);
-
-    rt_thread_mdelay(1000);
-
-    rc = sqlite3_open(DATABASE_NAME, &db);
-    
-    if (rc != SQLITE_OK ) 
-    {
-        rt_kprintf("SQL 错误: %s\n", err_msg);
-        sqlite3_free(err_msg);
-        sqlite3_close(db);
-        return;
-    }
-    
-    rt_kprintf("成功创建表\n");
-
-    /* 插入数据 */
-    const char *sql_insert_data = 
-        "INSERT INTO Students VALUES (1, 'Tom', 18);"
-        "INSERT INTO Students VALUES (2, 'Jerry', 20);";
-    
-    rc = sqlite3_exec(db, sql_insert_data, 0, 0, &err_msg);
-    
-    if (rc != SQLITE_OK ) 
-    {
-        rt_kprintf("SQL 错误: %s\n", err_msg);
-        sqlite3_free(err_msg);
-        sqlite3_close(db);
-        return;
-    }
-    
-    rt_kprintf("成功插入数据\n");
-
-    /* 查询数据 */
-    const char *sql_select_data = "SELECT * FROM Students;";
-    
-    rt_kprintf("查询数据库中的数据:\n");
-
-    rc = sqlite3_exec(db, sql_select_data, callback, 0, &err_msg);
-    
-    if (rc != SQLITE_OK ) 
-    {
-        rt_kprintf("SQL 错误: %s\n", err_msg);
-        sqlite3_free(err_msg);
-    }
-    
-    /* 关闭数据库 */
-    sqlite3_close(db);
-    rt_kprintf("关闭数据库\n");
-}
-
-/* 创建一个线程来运行 SQLite demo */
-int sqlite3_test_demo(void)
-{
-    rt_thread_t thread = rt_thread_create("sqlite_demo", sqlite_demo, RT_NULL, 1024*256, 10, 10);
-    if (thread != RT_NULL)
-    {
-        rt_thread_startup(thread);
-    }
     return 0;
 }
 
@@ -185,5 +95,4 @@ int uart_test_demo(void)
 }
 
 //INIT_APP_EXPORT(acrop_main);
-MSH_CMD_EXPORT(sqlite3_test_demo, sqlite3 demo);
 MSH_CMD_EXPORT(uart_test_demo, uart demo);
