@@ -10,7 +10,7 @@ CFLAGS = ' -c -ffunction-sections'
 
 group   = DefineGroup('Applications', src, depend = [''], CPPPATH = CPPPATH, CFLAGS=CFLAGS)
 
-group = group + SConscript(os.path.join(cwd, '..', '..', '..', '..', 'SConscript'))
+group = group + SConscript(os.path.join(cwd, '..', '..', '..', '..', '..', 'SConscript'))
 
 list = os.listdir(cwd)
 for item in list:
