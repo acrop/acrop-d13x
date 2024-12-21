@@ -1,6 +1,6 @@
-CONFIG_PRJ_DEFCONFIG_FILENAME="d13x_kunlunpi88-nor_baremetal_bootloader_defconfig"
+CONFIG_PRJ_DEFCONFIG_FILENAME="d13x_acrop-device_baremetal_bootloader_defconfig"
 CONFIG_PRJ_CHIP="d13x"
-CONFIG_PRJ_BOARD="kunlunpi88-nor"
+CONFIG_PRJ_BOARD="acrop-device"
 CONFIG_PRJ_KERNEL="baremetal"
 CONFIG_PRJ_APP="bootloader"
 CONFIG_PRJ_CUSTOM_LDS="application/baremetal/bootloader/ldscript/d13x_bootloader_gcc.ld"

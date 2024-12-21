@@ -1,8 +1,8 @@
-CONFIG_PRJ_DEFCONFIG_FILENAME="d13x_kunlunpi88-nor_rt-thread_helloworld_defconfig"
+CONFIG_PRJ_DEFCONFIG_FILENAME="d13x_acrop-device_rt-thread_acrop-device_defconfig"
 CONFIG_PRJ_CHIP="d13x"
-CONFIG_PRJ_BOARD="kunlunpi88-nor"
+CONFIG_PRJ_BOARD="acrop-device"
 CONFIG_PRJ_KERNEL="rt-thread"
-CONFIG_PRJ_APP="helloworld"
+CONFIG_PRJ_APP="acrop-device"
 CONFIG_AIC_USING_FS_IMAGE_0=y
 CONFIG_AIC_USING_FS_IMAGE_TYPE_FATFS_FOR_0=y
 CONFIG_AIC_FS_IMAGE_DIR_0="rodata/"
