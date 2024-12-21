@@ -5,11 +5,12 @@
 
 #define DATABASE_NAME "/data/test.db"
 
+int test_acrop_device();
 
 /* 回调函数，用于处理查询结果 */
 int callback(void *NotUsed, int argc, char **argv, char **azColName)
 {
-    for (int i = 0; i < argc; i++) 
+    for (int i = 0; i < argc; i++)
     {
         rt_kprintf("%s = %s\n", azColName[i], argv[i] ? argv[i] : "NULL");
     }
@@ -19,7 +20,7 @@ int callback(void *NotUsed, int argc, char **argv, char **azColName)
 
 int acrop_main(void)
 {
-  printf("Hello World!\n");
+  printf("Hello World:%d!\n", test_acrop_device());
   uint32_t pin = 0;
   pin = rt_pin_get("PE.6");
   rt_pin_mode(pin, PIN_MODE_OUTPUT);
