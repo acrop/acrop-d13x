@@ -5,20 +5,15 @@
  * AiUIBuilder version: v1.0.0
  */
 
-#ifndef _UI_INIT_H
-#define _UI_INIT_H
-
+#ifndef CUSTOM_CODE
+#define CUSTOM_CODE
 #ifdef __cplusplus
 extern "C" {
 #endif
 
-#include <stdio.h>
-#include "lvgl.h"
-
-void ui_init(void);
+void custom_init();
 
 #ifdef __cplusplus
-} /*extern "C"*/
+}
 #endif
-
-#endif // _UI_INIT_H
+#endif /* CUSTOM_CODE */
