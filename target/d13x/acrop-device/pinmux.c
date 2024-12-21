@@ -29,6 +29,21 @@ struct aic_pinmux aic_pinmux_config[] = {
     {5, PIN_PULL_DIS, 3, "PD.4"},   // BT_UART2_TX
     {5, PIN_PULL_UP, 3, "PD.5"},   // BT_UART2_RX
 #endif
+#ifdef AIC_USING_UART3
+    /* uart3 */
+    {5, PIN_PULL_DIS, 3, "PE.0"},   // UART3_TX
+    {5, PIN_PULL_UP, 3, "PE.1"},   // UART3_RX
+#endif
+#ifdef AIC_USING_UART4
+    /* uart4 */
+    {5, PIN_PULL_DIS, 3, "PE.2"},   // UART4_TX
+    {5, PIN_PULL_UP, 3, "PE.3"},   // UART4_RX
+#endif
+#ifdef AIC_USING_UART5
+    /* uart5 */
+    {5, PIN_PULL_DIS, 3, "PE.4"},   // UART5_TX
+    {5, PIN_PULL_UP, 3, "PE.5"},   // UART5_RX
+#endif
 #ifdef AIC_USING_CAN0
     /* can0 */
     {4, PIN_PULL_DIS, 3, "PA.4"},
