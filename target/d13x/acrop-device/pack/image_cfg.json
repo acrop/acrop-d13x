@@ -13,7 +13,7 @@
     "image": {
         "info": { // Header information about image
             "platform": "d13x",
-            "product": "kunlunpi88-nor",
+            "product": "acrop-device",
             "version": "1.0.0",
             "media": {
                 "type": "spi-nor",
