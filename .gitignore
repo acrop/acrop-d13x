@@ -26,3 +26,7 @@ packages/pkgs.json
 .editorconfig
 .gitattributes
 
+/packages/third-party/mbedtls/ports/src/tls_certificate.c
+libaic_canvas*.a
+.image_cfg.json.tmp
+bootloader.bin
