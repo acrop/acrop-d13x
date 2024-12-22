@@ -18,7 +18,7 @@ int callback(void *NotUsed, int argc, char **argv, char **azColName)
     return 0;
 }
 
-int acrop_main(void)
+int acrop_main_test(void)
 {
   printf("Hello World:%d!\n", test_acrop_device());
   uint32_t pin = 0;
@@ -95,5 +95,5 @@ int uart_test_demo(void)
     return 0;
 }
 
-//INIT_APP_EXPORT(acrop_main);
+//INIT_APP_EXPORT(acrop_main_test);
 MSH_CMD_EXPORT(uart_test_demo, uart demo);
