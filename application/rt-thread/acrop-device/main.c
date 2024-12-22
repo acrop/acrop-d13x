@@ -16,5 +16,6 @@ int main(void)
 #ifdef ULOG_USING_FILTER
     ulog_global_filter_lvl_set(ULOG_OUTPUT_LVL);
 #endif
+    acrop_main(64 * 1024);
     return 0;
 }
