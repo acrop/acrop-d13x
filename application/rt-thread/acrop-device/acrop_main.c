@@ -1,5 +1,6 @@
 #include <rtthread.h>
 #include <stdio.h>
+#include <string.h>
 #include "rtdevice.h"
 #include "aic_hal_gpio.h"
 
