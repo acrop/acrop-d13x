@@ -11,6 +11,8 @@
 #include <ulog.h>
 #endif
 
+void acrop_main(int max_js_stack_size);
+
 int main(void)
 {
 #ifdef ULOG_USING_FILTER
