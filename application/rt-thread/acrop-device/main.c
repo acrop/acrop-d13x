@@ -11,13 +11,13 @@
 #include <ulog.h>
 #endif
 
-void acrop_main(int max_js_stack_size);
+void appimg_enter(void);
 
 int main(void)
 {
 #ifdef ULOG_USING_FILTER
     ulog_global_filter_lvl_set(ULOG_OUTPUT_LVL);
 #endif
-    acrop_main(64 * 1024);
+    appimg_enter();
     return 0;
 }
