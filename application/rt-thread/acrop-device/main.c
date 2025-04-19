@@ -11,13 +11,10 @@
 #include <ulog.h>
 #endif
 
-void appimg_enter(void);
-
 int main(void)
 {
 #ifdef ULOG_USING_FILTER
     ulog_global_filter_lvl_set(ULOG_OUTPUT_LVL);
 #endif
-    appimg_enter();
     return 0;
 }
