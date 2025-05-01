@@ -8,7 +8,9 @@ CPPPATH = [cwd, ]
 
 CFLAGS = ' -c -ffunction-sections'
 
-group   = DefineGroup('Applications', src, depend = [''], CPPPATH = CPPPATH, CFLAGS=CFLAGS)
+install=[('../../../fs_user/', 'data/')]
+
+group   = DefineGroup('Applications', src, depend = [''], CPPPATH = CPPPATH, CFLAGS=CFLAGS, INSTALL=install)
 
 group = group + SConscript(os.path.join(cwd, '..', '..', '..', '..', '..', 'SConscript'), variant_dir='acrop-device')
 
