@@ -6,8 +6,8 @@
             "env":        { "size": "128k" },
             "env_r":      { "size": "128k" },
             "os":         { "size": "4m" },
-            "rodata":     { "size": "4m" },
-            "data":       { "size": "4m" }
+            "rodata":     { "size": "3m" },
+            "data":       { "size": "5m" }
         },
     },
     "image": {
