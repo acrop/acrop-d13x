@@ -116,8 +116,8 @@ typedef long                            rt_base_t;      /**< Nbit CPU related da
 typedef unsigned long                   rt_ubase_t;     /**< Nbit unsigned CPU related data type */
 
 typedef rt_base_t                       rt_err_t;       /**< Type for error number */
-typedef rt_uint32_t                     rt_time_t;      /**< Type for time stamp */
-typedef rt_uint32_t                     rt_tick_t;      /**< Type for tick count */
+typedef rt_uint64_t                     rt_time_t;      /**< Type for time stamp */
+typedef rt_uint64_t                     rt_tick_t;      /**< Type for tick count */
 typedef rt_base_t                       rt_flag_t;      /**< Type for flags */
 typedef rt_ubase_t                      rt_dev_t;       /**< Type for device */
 typedef rt_base_t                       rt_off_t;       /**< Type for offset */
@@ -136,13 +136,15 @@ typedef rt_base_t                       rt_off_t;       /**< Type for offset */
 #define RT_UINT8_MAX                    UINT8_MAX       /**< Maximum number of UINT8 */
 #define RT_UINT16_MAX                   UINT16_MAX      /**< Maximum number of UINT16 */
 #define RT_UINT32_MAX                   UINT32_MAX      /**< Maximum number of UINT32 */
+#define RT_UINT64_MAX                   UINT64_MAX      /**< Maximum number of UINT64 */
 #else
 #define RT_UINT8_MAX                    0xff            /**< Maximum number of UINT8 */
 #define RT_UINT16_MAX                   0xffff          /**< Maximum number of UINT16 */
 #define RT_UINT32_MAX                   0xffffffff      /**< Maximum number of UINT32 */
+#define RT_UINT64_MAX                   0xffffffffffffffff      /**< Maximum number of UINT64 */
 #endif /* RT_USING_LIBC */
 
-#define RT_TICK_MAX                     RT_UINT32_MAX   /**< Maximum number of tick */
+#define RT_TICK_MAX                     RT_UINT64_MAX   /**< Maximum number of tick */
 
 /* maximum value of ipc type */
 #define RT_SEM_VALUE_MAX                RT_UINT16_MAX   /**< Maximum number of semaphore .value */
