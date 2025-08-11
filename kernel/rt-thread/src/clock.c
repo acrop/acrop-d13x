@@ -24,6 +24,7 @@
 #define rt_tick rt_cpu_index(0)->tick
 #else
 static volatile rt_tick_t rt_tick = 0;
+static volatile uint64_t acrop_rt_tick = 0;
 #endif /* RT_USING_SMP */
 
 #ifndef __on_rt_tick_hook
@@ -102,6 +103,7 @@ void rt_tick_increase(void)
     rt_cpu_self()->tick ++;
 #else
     ++ rt_tick;
+    ++ acrop_rt_tick;
 #endif /* RT_USING_SMP */
 
     /* check time slice */
@@ -175,5 +177,24 @@ RT_WEAK rt_tick_t rt_tick_get_millisecond(void)
 #endif /* 1000 % RT_TICK_PER_SECOND == 0u */
 }
 
-/**@}*/
+/**
+ * @brief    This function will return the passed millisecond from boot as uint64_t.
+ *
+ * @note     if the value of RT_TICK_PER_SECOND is lower than 1000 or
+ *           is not an integral multiple of 1000, this function will not
+ *           provide the correct 1ms-based tick.
+ *
+ * @return   Return passed millisecond from boot.
+ */
+RT_WEAK uint64_t acrop_rt_tick_get_millisecond(void)
+{
+#if 1000 % RT_TICK_PER_SECOND == 0u
+    return acrop_rt_tick * (1000u / RT_TICK_PER_SECOND);
+#else
+    #warning "rt-thread cannot provide a correct 1ms-based tick any longer,\
+    please redefine this function in another file by using a high-precision hard-timer."
+    return 0;
+#endif /* 1000 % RT_TICK_PER_SECOND == 0u */
+}
 
+/**@}*/
