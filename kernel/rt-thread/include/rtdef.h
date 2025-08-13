@@ -138,10 +138,10 @@ typedef rt_base_t                       rt_off_t;       /**< Type for offset */
 #define RT_UINT32_MAX                   UINT32_MAX      /**< Maximum number of UINT32 */
 #define RT_UINT64_MAX                   UINT64_MAX      /**< Maximum number of UINT64 */
 #else
-#define RT_UINT8_MAX                    0xff            /**< Maximum number of UINT8 */
-#define RT_UINT16_MAX                   0xffff          /**< Maximum number of UINT16 */
-#define RT_UINT32_MAX                   0xffffffff      /**< Maximum number of UINT32 */
-#define RT_UINT64_MAX                   0xffffffffffffffff      /**< Maximum number of UINT64 */
+#define RT_UINT8_MAX                    0xFFU                 /**< Maximum number of UINT8 */
+#define RT_UINT16_MAX                   0xFFFFU               /**< Maximum number of UINT16 */
+#define RT_UINT32_MAX                   0xFFFFFFFFUL          /**< Maximum number of UINT32 */
+#define RT_UINT64_MAX                   0xFFFFFFFFFFFFFFFFULL /**< Maximum number of UINT64 */
 #endif /* RT_USING_LIBC */
 
 #define RT_TICK_MAX                     RT_UINT32_MAX   /**< Maximum number of tick */
