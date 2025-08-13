@@ -42,7 +42,7 @@ def clean_files(path_list, outpath):
 def install_files(srcpath, dstpath):
     if os.path.exists(srcpath) is False:
         print('src is not exist')
-        os.exit(1)
+        sys.exit(1)
     if os.path.isdir(srcpath):
         fs_mkdir(dstpath)
         root_path = srcpath
