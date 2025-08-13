@@ -95,6 +95,24 @@ void *aic_memheap_malloc(int type, size_t size)
     return ptr;
 }
 
+void *aic_memheap_realloc(int type, void *ptr, size_t size)
+{
+    void *new_ptr;
+    int i = 0;
+
+    for (i=0; i<sizeof(aic_memheaps)/sizeof(struct aic_memheap); i++) {
+        if (aic_memheaps[i].type == type)
+            break;
+    }
+    if (i >= sizeof(aic_memheaps)/sizeof(struct aic_memheap))
+        return NULL;
+
+    rt_mutex_take(&aic_memheaps[i].lock, RT_WAITING_FOREVER);
+    new_ptr = rt_memheap_realloc(&aic_memheaps[i].heap, ptr, size);
+    rt_mutex_release(&aic_memheaps[i].lock);
+    return new_ptr;
+}
+
 void aic_memheap_free(int type, void *rmem)
 {
     int i = 0;

@@ -302,6 +302,7 @@ static inline void aicos_msleep(uint32_t delay)
 //--------------------------------------------------------------------+
 void *aic_memheap_malloc(int type, size_t size);
 void aic_memheap_free(int type, void *rmem);
+void *aic_memheap_realloc(int type, void *ptr, size_t size);
 
 static inline void *aicos_malloc(unsigned int mem_type, size_t size)
 {
@@ -321,6 +322,18 @@ static inline void aicos_free(unsigned int mem_type, void *mem)
         rt_free(mem);
     else
         aic_memheap_free(mem_type, mem);
+}
+
+static inline void *aicos_realloc(unsigned int mem_type, void *mem, size_t size)
+{
+    void *p;
+
+    if (mem_type == MEM_DEFAULT)
+        p = rt_realloc(mem, size);
+    else
+        p = aic_memheap_realloc(mem_type, mem, size);
+
+    return p;
 }
 
 static inline void *aicos_malloc_align(uint32_t mem_type, size_t size, size_t align)
