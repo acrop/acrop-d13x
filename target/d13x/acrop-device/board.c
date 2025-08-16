@@ -211,7 +211,7 @@ const struct dfs_mount_tbl mount_table[] = {
 #endif
 #ifdef AIC_USING_SDMC1
     // SD 卡首个分区
-    {"sd0p0", "/sdcard", "elm", 0, 0, 0},
+    {"sd1p0", "/sdcard", "elm", 0, 0, 0},
     // 设备节点，一定存在
     {"sd1", "/sdcard", "elm", 0, 0, 0},
 #endif
