@@ -114,6 +114,7 @@ PROVIDE (__sram_s1_cma_end         = 0x40000000);
 PROVIDE (__psram_sw_start          = 0x40000000);
 PROVIDE (__psram_sw_end            = 0x40000000 + AIC_PSRAM_SW_SIZE);
 PROVIDE (__psram_cma_start         = __psram_sw_end);
+PROVIDE (__psram_cma_middle        = 0x40000000 + AIC_PSRAM_SIZE - 0x600000);
 PROVIDE (__psram_cma_end           = 0x40000000 + AIC_PSRAM_SIZE);
 PROVIDE (__psram_start             = 0x40000000);
 PROVIDE (__psram_end               = 0x40000000 + AIC_PSRAM_SIZE);
@@ -132,14 +133,16 @@ PROVIDE (__psram_sw_heap_end       = __psram_sw_end);
 PROVIDE (__min_heap_size           = 0x200);
 PROVIDE (__sram_sw_heap_start      = __sram_s0_sw_heap_start);
 PROVIDE (__sram_sw_heap_end        = __sram_s0_sw_heap_end);
-PROVIDE (__heap_start              = __sram_s0_sw_heap_start);
-PROVIDE (__heap_end                = __sram_s0_sw_heap_end);
 #ifdef AIC_PSRAM_CMA_EN
 PROVIDE (__cma_heap_start          = __psram_cma_heap_start);
-PROVIDE (__cma_heap_end            = __psram_cma_heap_end);
+PROVIDE (__cma_heap_end            = __psram_cma_middle);
+PROVIDE (__heap_start              = __psram_cma_middle);
+PROVIDE (__heap_end                = __psram_cma_heap_end);
 #else
 PROVIDE (__cma_heap_start          = __sram_s1_cma_heap_start);
 PROVIDE (__cma_heap_end            = __sram_s1_cma_heap_end);
+PROVIDE (__heap_start              = __sram_s0_sw_heap_start);
+PROVIDE (__heap_end                = __sram_s0_sw_heap_end);
 #endif
 
 #ifdef AIC_TCM_EN
