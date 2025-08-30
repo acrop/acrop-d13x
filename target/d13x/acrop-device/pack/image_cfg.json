@@ -5,9 +5,9 @@
             "spl":        { "size": "512k" },
             "env":        { "size": "128k" },
             "env_r":      { "size": "128k" },
-            "os":         { "size": "2m" },
-            "rodata":     { "size": "9m" },
-            "data":       { "size": "1m" }
+            "os":         { "size": "4m" },
+            "rodata":     { "size": "3m" },
+            "data":       { "size": "5m" }
         },
     },
     "image": {
