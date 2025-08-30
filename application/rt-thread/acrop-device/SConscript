@@ -8,7 +8,9 @@ CPPPATH = [cwd, ]
 
 CFLAGS = ' -c -ffunction-sections'
 
-group   = DefineGroup('Applications', src, depend = [''], CPPPATH = CPPPATH, CFLAGS=CFLAGS)
+install=[('../../../fs_user/', 'data/')]
+
+group   = DefineGroup('Applications', src, depend = [''], CPPPATH = CPPPATH, CFLAGS=CFLAGS, INSTALL=install)
 
 list = os.listdir(cwd)
 for item in list:
