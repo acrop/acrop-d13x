@@ -192,6 +192,9 @@ const struct dfs_mount_tbl mount_table[] = {
     {"data", "/data", "uffs", 0, 0, 1},
 #endif
 #ifdef AIC_USING_SDMC1
+    // SD 卡首个分区
+    {"sd1p0", "/sdcard", "elm", 0, 0, 0},
+    // 设备节点，一定存在
     {"sd1", "/sdcard", "elm", 0, 0, 0},
 #endif
 #if (defined(AIC_USING_USB0_HOST) || defined(AIC_USING_USB0_OTG) || defined(AIC_USING_USB1_HOST))
