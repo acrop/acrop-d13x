@@ -4,13 +4,20 @@
 #include <aic_common.h>
 #include <aic_time.h>
 
+//rthw.h
+RTM_EXPORT(rt_hw_cpu_reset);
+RTM_EXPORT(rt_hw_cpu_shutdown);
+RTM_EXPORT(rt_hw_stack_init);
+RTM_EXPORT(rt_hw_context_switch);
+RTM_EXPORT(rt_hw_context_switch_to);
+RTM_EXPORT(rt_hw_context_switch_interrupt);
+RTM_EXPORT(rt_hw_us_delay);
+
+
 RTM_EXPORT(rt_pin_mode);
 RTM_EXPORT(rt_pin_write);
 RTM_EXPORT(rt_pin_read);
 RTM_EXPORT(rt_pin_get);
-
-//rtc
-RTM_EXPORT(rt_hw_cpu_reset);
 
 //memory
 RTM_EXPORT(malloc);
