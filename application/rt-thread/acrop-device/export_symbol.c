@@ -1,8 +1,92 @@
 #include <drivers/pin.h>
 #include <rthw.h>
+#include <drivers/rtc.h>
 #include <stdlib.h>
-#include <aic_common.h>
-#include <aic_time.h>
+#include <ctype.h>
+#include <math.h>
+#include <stdio.h>
+#include <string.h>
+#include <sys/select.h>
+#include <signal.h>
+
+
+
+RTM_EXPORT(_ctype_);
+
+
+RTM_EXPORT(strerror);
+RTM_EXPORT(select);
+
+
+//stdlib.h
+RTM_EXPORT(getenv);
+RTM_EXPORT(setenv);
+RTM_EXPORT(unsetenv);
+
+//stdio.h
+RTM_EXPORT(remove);
+RTM_EXPORT(vsprintf);
+RTM_EXPORT(vsnprintf);
+RTM_EXPORT(fflush);
+RTM_EXPORT(strrchr);
+RTM_EXPORT(strtod);
+RTM_EXPORT(fprintf);
+RTM_EXPORT(lrint);
+RTM_EXPORT(fseeko);
+RTM_EXPORT(fmod);
+RTM_EXPORT(ftello);
+RTM_EXPORT(signal);
+RTM_EXPORT(strtok);
+RTM_EXPORT(sscanf);
+RTM_EXPORT(fread);
+RTM_EXPORT(fopen);
+RTM_EXPORT(fclose);
+RTM_EXPORT(strcspn);
+RTM_EXPORT(fputc);
+RTM_EXPORT(freopen);
+RTM_EXPORT(strspn);
+RTM_EXPORT(hypot);
+
+RTM_EXPORT(srand);
+
+//memory
+RTM_EXPORT(malloc);
+RTM_EXPORT(free);
+RTM_EXPORT(realloc);
+RTM_EXPORT(calloc);
+
+//math
+RTM_EXPORT(fabs);
+RTM_EXPORT(sqrt);
+RTM_EXPORT(acos);
+RTM_EXPORT(asin);
+RTM_EXPORT(atan);
+RTM_EXPORT(atan2);
+RTM_EXPORT(cos);
+RTM_EXPORT(exp);
+RTM_EXPORT(log);
+RTM_EXPORT(sin);
+RTM_EXPORT(tan);
+RTM_EXPORT(trunc);
+RTM_EXPORT(cosh);
+RTM_EXPORT(sinh);
+RTM_EXPORT(tanh);
+RTM_EXPORT(acosh);
+RTM_EXPORT(expm1);
+RTM_EXPORT(log1p);
+RTM_EXPORT(log2);
+RTM_EXPORT(log10);
+RTM_EXPORT(cbrt);
+RTM_EXPORT(asinh);
+RTM_EXPORT(round);
+RTM_EXPORT(ceil);
+RTM_EXPORT(floor);
+RTM_EXPORT(pow);
+RTM_EXPORT(atanh);
+RTM_EXPORT(fmin);
+RTM_EXPORT(fmax);
+RTM_EXPORT(atoi);
+
 
 //rthw.h
 RTM_EXPORT(rt_hw_cpu_reset);
@@ -19,12 +103,13 @@ RTM_EXPORT(rt_pin_write);
 RTM_EXPORT(rt_pin_read);
 RTM_EXPORT(rt_pin_get);
 
-//memory
-RTM_EXPORT(malloc);
-RTM_EXPORT(free);
-RTM_EXPORT(realloc);
-RTM_EXPORT(calloc);
+//rtc.h
+RTM_EXPORT(get_timestamp);
+RTM_EXPORT(set_timestamp);
 
-//delay
-RTM_EXPORT(aic_mdelay);
-RTM_EXPORT(aic_udelay);
+RTM_EXPORT(rt_device_init);
+RTM_EXPORT(rt_tick_get_millisecond);
+
+
+
+
