@@ -578,12 +578,12 @@ rt_err_t rt_timer_control(rt_timer_t timer, int cmd, void *arg)
     switch (cmd)
     {
     case RT_TIMER_CTRL_GET_TIME:
-        *(rt_tick_t *)arg = timer->init_tick;
+        *(rt_uint32_t *)arg = timer->init_tick;
         break;
 
     case RT_TIMER_CTRL_SET_TIME:
-        RT_ASSERT((*(rt_tick_t *)arg) < RT_TICK_MAX / 2);
-        timer->init_tick = *(rt_tick_t *)arg;
+        RT_ASSERT((*(rt_uint32_t *)arg) < RT_UINT32_MAX / 2);
+        timer->init_tick = *(rt_uint32_t *)arg;
         break;
 
     case RT_TIMER_CTRL_SET_ONESHOT:
