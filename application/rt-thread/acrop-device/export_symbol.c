@@ -8,6 +8,7 @@
 #include <string.h>
 #include <sys/select.h>
 #include <signal.h>
+#include "rt-atomic.h"
 
 
 
@@ -111,5 +112,13 @@ RTM_EXPORT(rt_device_init);
 RTM_EXPORT(rt_tick_get_millisecond);
 
 
-
-
+//rt-atomic.h
+RTM_EXPORT(__atomic_fetch_add_8);
+RTM_EXPORT(__atomic_fetch_and_8);
+RTM_EXPORT(__atomic_fetch_or_8);
+RTM_EXPORT(__atomic_fetch_sub_8);
+RTM_EXPORT(__atomic_fetch_xor_8);
+RTM_EXPORT(__atomic_store_8);
+RTM_EXPORT(__atomic_load_8);
+RTM_EXPORT(__atomic_exchange_8);
+RTM_EXPORT(__atomic_compare_exchange_8);
