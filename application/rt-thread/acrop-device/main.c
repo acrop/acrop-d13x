@@ -18,3 +18,7 @@ int main(void)
 #endif
     return 0;
 }
+
+extern int acrop_run(void);
+
+MSH_CMD_EXPORT(acrop_run, acrop_run function);

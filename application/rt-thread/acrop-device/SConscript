@@ -6,11 +6,18 @@ cwd     = GetCurrentDir()
 src     = Glob('*.c')
 CPPPATH = [cwd, ]
 
+LIBS = [
+    'appimg_acrop_device_static',
+    'quickjs',
+    'lwipcore'
+]
+LIBPATH = [cwd, ]
+
 CFLAGS = ' -c -ffunction-sections'
 
 install=[('../../../fs_user/', 'data/')]
 
-group   = DefineGroup('Applications', src, depend = [''], CPPPATH = CPPPATH, CFLAGS=CFLAGS, INSTALL=install)
+group   = DefineGroup('Applications', src, depend = [''], CPPPATH = CPPPATH, CFLAGS=CFLAGS, LIBS=LIBS, LIBPATH=LIBPATH,INSTALL=install)
 
 list = os.listdir(cwd)
 for item in list:
